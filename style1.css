@@ -1,0 +1,210 @@
+:root {
+        --main-color: #0ff;
+    }
+    
+    /* === Anime Info Section === */
+    .anime-container {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 1000px;
+        margin: 20px auto;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        background: #111; /* Warna background isi konten */
+        z-index: 0;
+    }
+    
+    .anime-container::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        padding: 5px; /* Ketebalan border */
+        background: linear-gradient(90deg, rgba(128, 0, 0, 1), rgba(0, 0, 0, 1));
+        border-radius: 10px;
+        -webkit-mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+                mask-composite: exclude;
+        z-index: -1;
+    }
+    
+    
+    .anime-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1;
+    }
+    
+    .anime-info p {
+        margin: 5px 0;
+    }
+    
+    .highlight {
+        background: linear-gradient(90deg,rgba(128, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 100%);
+        padding: 10px;
+        border-radius: 5px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-align: center;
+        color: var(--main-color);
+    }
+    
+    /* === Episode Section === */
+    .episode-wrapper {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #222;
+        border-radius: 8px;
+        text-align: center;
+    }
+    
+    .episode-title {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .episode-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(60px, auto));
+        gap: 10px;
+        justify-content: center;    /* Grid-nya rata tengah */
+        justify-items: center;      /* Tiap tombol di tengah kolom */
+        padding: 10px 0;
+    }
+    
+    .episode-grid button {
+        background-color: #555;
+        color: var(--main-color);
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        height: 50px;
+        min-width: 60px;
+        padding: 0 15px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.3s ease;
+    }
+    
+    .episode-grid button:hover {
+        background: linear-gradient(90deg, rgba(128, 0, 0, 1), rgba(0, 0, 0, 1));
+        color: #fff;
+    }
+    
+    .episode-grid button.active {
+        background: linear-gradient(90deg, rgba(128, 0, 0, 1), rgba(0, 0, 0, 1));
+        color: #fff;
+    }
+    
+
+    
+    
+    /* === Download Button / Navigation === */
+    .navigation {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        margin: 20px auto; /* Sama seperti anime-container */
+        max-width: 1000px;  /* Disamakan juga */
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        
+        z-index: 0;
+    }
+    
+    .navigation::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        padding: 5px; /* Ketebalan border */
+        border-radius: 10px;
+        background: linear-gradient(90deg, rgba(128, 0, 0, 1), rgba(0, 0, 0, 1));
+        -webkit-mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+                mask-composite: exclude;
+        z-index: -1;
+    }
+    
+    
+    .download-button {
+        background: linear-gradient(90deg,rgba(128, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 100%);
+        color: var(--main-color);
+        font-weight: bold;
+        font-size: 18px;
+        padding: 10px 20px;
+        border-radius: 6px;
+        text-decoration: none;
+    }
+    
+    /* === Popup Manual Download === */
+    #manualDownloadPopup {
+        display: none;
+        margin: 15px auto;
+        text-align: center;
+        background: #333;
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        max-width: 800px;
+    }
+    
+    #manualDownloadLink {
+        width: 80%;
+        padding: 8px;
+        color: black;
+    }
+    
+        /* === LOWER THIRD (logo kecil pojok bawah) === */
+    #lowerThird {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        z-index: 5;
+        opacity: 0.6;
+        transition: opacity 0.3s ease;
+    }
+    
+    #lowerThird img {
+        width: 100px;
+        height: auto;
+    }
+    
+    /* === Responsive === */
+    @media screen and (max-width: 768px) {
+        .anime-container {
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+        }
+    
+        .anime-info {
+            text-align: center;
+        }
+    
+        .highlight {
+            font-size: 1.2em;
+        }
+    
+        .episode-grid {
+            grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+        }
+    
+      #lowerThird {
+            bottom: 10px;
+            right: 10px;
+        }
+    
+        #lowerThird img {
+            width: 70px;
+        }
+    }
