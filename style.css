@@ -27,7 +27,7 @@
 }
 
 .highlight {
-    background-color: #555;
+    background: linear-gradient(90deg,rgba(128, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 100%);
     padding: 10px;
     border-radius: 5px;
     font-weight: bold;
@@ -87,7 +87,7 @@
 }
 
 .download-button {
-    background-color: #555;
+    background: linear-gradient(90deg,rgba(128, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 100%);
     color: var(--main-color);
     font-weight: bold;
     font-size: 18px;
